@@ -219,7 +219,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/KangLin/RabbitRemoteControl.git",
-                    "commit": "d2cf447e1971b1b8f25d6bd766db4d22f987ee76"
+                    "commit": "5aea91e29c7dfc9fd31806fd9716d7b20254596f"
                 }
             ],
             "buildsystem": "cmake-ninja",
