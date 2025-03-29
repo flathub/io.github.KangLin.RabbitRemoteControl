@@ -195,7 +195,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/KangLin/RabbitCommon.git",
-                    "commit": "0b5acb3e7b1b388377edbff33e20e092eb0eca74"
+                    "commit": "51658af302a707afb81d8d06c24274a33ed77ac0"
                 }
             ],
             "buildsystem": "cmake-ninja",
@@ -219,7 +219,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/KangLin/RabbitRemoteControl.git",
-                    "commit": "5aea91e29c7dfc9fd31806fd9716d7b20254596f"
+                    "commit": "05e1b4f95f1abf07f0fc5228ce495a29ba6f5e8a"
                 }
             ],
             "buildsystem": "cmake-ninja",
