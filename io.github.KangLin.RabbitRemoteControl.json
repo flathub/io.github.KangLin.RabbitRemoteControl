@@ -195,7 +195,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/KangLin/RabbitCommon.git",
-                    "commit": "51658af302a707afb81d8d06c24274a33ed77ac0"
+                    "commit": "78f6caf1e6fae243dad2e8c3e77b2136163d0dbe"
                 }
             ],
             "buildsystem": "cmake-ninja",
