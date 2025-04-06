@@ -190,12 +190,48 @@
             ]
         },
         {
+            "name": "libpcap",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://www.tcpdump.org/release/libpcap-1.10.5.tar.gz",
+                    "sha256": "37ced90a19a302a7f32e458224a00c365c117905c2cd35ac544b6880a81488f0"
+                }
+            ],
+            "cleanup": [
+                "/share"
+            ]
+        },
+        {
+            "name": "PcapPlusPlus",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/seladb/PcapPlusPlus/archive/refs/tags/v24.09.tar.gz",
+                    "sha256": "b14998ecf5718c2bfb6f709060e53f7ef67639b98bf2222a3cd23d820d70acdc"
+                }
+            ],
+            "buildsystem": "cmake-ninja",
+            "builddir": true,
+            "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
+                "-DPCAPPP_BUILD_EXAMPLES=OFF",
+                "-DPCAPPP_BUILD_TESTS=OFF",
+                "-DPCAPPP_INSTALL=ON"
+            ],
+            "cleanup": [
+                "/usr/share",
+                "/usr/local"
+            ]
+        },
+        {
             "name": "RabbitCommon",
             "sources": [
                 {
                     "type": "git",
                     "url": "https://github.com/KangLin/RabbitCommon.git",
-                    "commit": "78f6caf1e6fae243dad2e8c3e77b2136163d0dbe"
+                    "commit": "78f6caf1e6fae243dad2e8c3e77b2136163d0dbe",
+                    "disable-shallow-clone": true
                 }
             ],
             "buildsystem": "cmake-ninja",
@@ -219,7 +255,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/KangLin/RabbitRemoteControl.git",
-                    "tag": "v0.0.34"
+                    "tag": "v0.0.34",
+                    "disable-shallow-clone": true
                 }
             ],
             "buildsystem": "cmake-ninja",
