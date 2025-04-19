@@ -123,8 +123,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://github.com/FreeRDP/FreeRDP/archive/refs/tags/3.14.0.tar.gz",
-                    "sha256": "a7a979382703c2bc18aa9b22cfa12d7a441b6927ab45ac62ef8353786bc92241"
+                    "url": "https://github.com/FreeRDP/FreeRDP/archive/refs/tags/3.15.0.tar.gz",
+                    "sha256": "9a922df0237a90a9cd15ec2261666cfcfaf29923278f0e463bb965059ac1b87d"
                 }
             ],
             "buildsystem": "cmake-ninja",
@@ -255,7 +255,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/KangLin/RabbitRemoteControl.git",
-                    "commit": "59e5da6f7da3e6c426504705882e6d47b02d7133",
+                    "commit": "6e8b9a0f8d9b7c809525e58b156ea03ad2b74df4",
                     "disable-shallow-clone": true
                 }
             ],
