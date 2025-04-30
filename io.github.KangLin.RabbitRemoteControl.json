@@ -230,7 +230,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/KangLin/RabbitCommon.git",
-                    "commit": "e4096af8517ed601e8f85c823afffb63b0317c2f",
+                    "commit": "9f196801ca83d6d5ac274c9b01bbecdd1f8b7af7",
                     "disable-shallow-clone": true
                 }
             ],
@@ -255,7 +255,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/KangLin/RabbitRemoteControl.git",
-                    "commit": "265d75d107773a1797ea2c1acf75742633a82e98",
+                    "commit": "245fa5f911ef8dbc913c99a7b0f7d23621469a8d",
                     "disable-shallow-clone": true
                 }
             ],
