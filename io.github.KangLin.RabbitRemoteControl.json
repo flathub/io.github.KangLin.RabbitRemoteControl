@@ -255,7 +255,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/KangLin/RabbitRemoteControl.git",
-                    "commit": "2591d6f118b7c89af39390283d06b336a042a734",
+                    "commit": "6c0ce935344d9c1f6d18cc00978dbcd42a6a08c7",
                     "disable-shallow-clone": true
                 }
             ],
