@@ -230,8 +230,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/KangLin/RabbitCommon.git",
-                    "commit": "9f196801ca83d6d5ac274c9b01bbecdd1f8b7af7",
-                    "disable-shallow-clone": true
+                    "tag": "v2.3.3"
                 }
             ],
             "buildsystem": "cmake-ninja",
@@ -255,7 +254,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/KangLin/RabbitRemoteControl.git",
-                    "commit": "6c0ce935344d9c1f6d18cc00978dbcd42a6a08c7",
+                    "commit": "10edbea415be009e2e137c7b152483c1f3be3978",
                     "disable-shallow-clone": true
                 }
             ],
