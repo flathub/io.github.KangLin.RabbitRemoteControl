@@ -230,8 +230,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/KangLin/RabbitCommon.git",
-                    "commit": "9f196801ca83d6d5ac274c9b01bbecdd1f8b7af7",
-                    "disable-shallow-clone": true
+                    "tag": "v2.3.3"
                 }
             ],
             "buildsystem": "cmake-ninja",
