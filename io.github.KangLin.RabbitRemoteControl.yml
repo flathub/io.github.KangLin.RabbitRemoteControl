@@ -255,8 +255,9 @@ modules:
   - name: RabbitRemoteControl
     disabled: false
     sources:
-      - type: dir
-        path: ../..
+      - type: git
+        url: https://github.com/KangLin/RabbitRemoteControl.git
+        tag: v0.0.36
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
