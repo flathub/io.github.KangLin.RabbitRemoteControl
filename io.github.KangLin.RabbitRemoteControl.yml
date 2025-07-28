@@ -296,7 +296,7 @@ modules:
       - type: git
         url: https://github.com/KangLin/RabbitRemoteControl.git
         #tag: v0.0.36
-        commit: 4325ffb678f92ff605af0f04a45c585693c0c53f
+        commit: ffea2472d3ba70bfba306af0609bd7bb97c52f1a
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
