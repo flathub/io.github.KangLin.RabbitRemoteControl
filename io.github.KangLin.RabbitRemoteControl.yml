@@ -276,7 +276,6 @@ modules:
         #tag: v2.3.3
         commit: ca954003fbb6320062476d43a793592367fc7f88
         disable-shallow-clone: true
-
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
@@ -284,6 +283,8 @@ modules:
       - -DBUILD_MimeTypeBrowser=OFF
       - -DBUILD_APP=OFF
       - -DBUILD_TEST=OFF
+      - -DWITH_CMARK=OFF
+      - -DWITH_CMARK_GFM=ON
     cleanup:
       - /bin
       - /etc
@@ -296,14 +297,12 @@ modules:
       - type: git
         url: https://github.com/KangLin/RabbitRemoteControl.git
         #tag: v0.0.36
-        commit: ffea2472d3ba70bfba306af0609bd7bb97c52f1a
+        commit: f8596f02602f774e4789b4da72ef31deb3169765
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
-      - -DWITH_CMARK=OFF
-      - -DWITH_CMARK_GFM=ON
       - -DBUILD_FREERDP=ON
     cleanup:
       - -usr/bin/cmark
