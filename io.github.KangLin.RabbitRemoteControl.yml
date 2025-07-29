@@ -270,6 +270,8 @@ modules:
       - -DCMARK_TESTS=OFF
       - -DCMARK_STATIC=ON
     post-install:
+      - cp src/registry.h $FLATPAK_DEST/include/
+      - cp src/parser.h $FLATPAK_DEST/include/
       - cp /app/lib/cmake/cmark-gfm.cmake $FLATPAK_DEST/lib/cmake/cmark-gfmConfig.cmake
       - cp /app/lib/cmake-gfm-extensions/cmark-gfm-extensions.cmake $FLATPAK_DEST/lib/cmake-gfm-extensions/cmark-gfm-extensionsConfig.cmake
     cleanup:
