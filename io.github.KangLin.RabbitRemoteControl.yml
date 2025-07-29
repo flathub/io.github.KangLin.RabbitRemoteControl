@@ -239,13 +239,50 @@ modules:
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
 
+  - name: cmark
+    disabled: true
+    sources:
+      - type: archive
+        url: https://github.com/commonmark/cmark/archive/refs/tags/0.31.1.tar.gz
+        sha256: 3da93db5469c30588cfeb283d9d62edfc6ded9eb0edc10a4f5bbfb7d722ea802
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DCMARK_SHARED=OFF
+      - -DCMARK_TESTS=OFF
+      - -DCMARK_STATIC=ON
+    cleanup:
+      - /bin
+      - /share/man
+
+  - name: cmark-gfm
+    disabled: false
+    sources:
+      - type: archive
+        url: https://github.com/github/cmark-gfm/archive/refs/tags/0.29.0.gfm.13.tar.gz
+        sha256: 5abc61798ebd9de5660bc076443c07abad2b8d15dbc11094a3a79644b8ad243a
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DCMARK_SHARED=OFF
+      - -DCMARK_TESTS=OFF
+      - -DCMARK_STATIC=ON
+    post-install:
+      - cp /app/lib/cmake/cmark-gfm.cmake $FLATPAK_DEST/lib/cmake/cmark-gfmConfig.cmake
+      - cp /app/lib/cmake-gfm-extensions/cmark-gfm-extensions.cmake $FLATPAK_DEST/lib/cmake-gfm-extensions/cmark-gfm-extensionsConfig.cmake
+    cleanup:
+      - /bin
+      - /share/man
+
   - name: RabbitCommon
     disabled: false
     sources:
       - type: git
         url: https://github.com/KangLin/RabbitCommon.git
         #tag: v2.3.3
-        commit: ca954003fbb6320062476d43a793592367fc7f88
+        commit: 6265013d0f4bac7205956bd9e22914c87cf88c8e
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
@@ -254,11 +291,10 @@ modules:
       - -DBUILD_MimeTypeBrowser=OFF
       - -DBUILD_APP=OFF
       - -DBUILD_TEST=OFF
-      - -DCMARK_SHARED=OFF
-      - -DCMARK_TESTS=OFF
-      - -DCMARK_STATIC=ON
       - -DWITH_CMARK=OFF
       - -DWITH_CMARK_GFM=ON
+      - -Dcmark-gfm_DIR=/app/lib/cmake
+      - -Dcmark-gfm-extensions_DIR=/app/lib/cmake-gfm-extensions
     cleanup:
       - /bin
       - /etc
@@ -271,7 +307,7 @@ modules:
       - type: git
         url: https://github.com/KangLin/RabbitRemoteControl.git
         #tag: v0.0.36
-        commit: c998b59374453a497cc90eb0edf9ddc10ed8bad4
+        commit: 5e818f4a80b8db404c4ad9172f9a9cc520e025c5
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
