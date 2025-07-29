@@ -271,7 +271,7 @@ modules:
       - -DCMARK_STATIC=ON
     post-install:
       - cp /app/lib/cmake/cmark-gfm.cmake $FLATPAK_DEST/lib/cmake/cmark-gfmConfig.cmake
-      - cp /app/lib/cmake/cmark-gfm-extensionsConfig.cmake $FLATPAK_DEST/lib/cmake/cmark-gfm-extensionsConfig.cmake
+      - cp /app/lib/cmake-gfm-extensions/cmark-gfm-extensions.cmake $FLATPAK_DEST/lib/cmake-gfm-extensions/cmark-gfm-extensionsConfig.cmake
     cleanup:
       - /bin
       - /share/man
@@ -293,6 +293,8 @@ modules:
       - -DBUILD_TEST=OFF
       - -DWITH_CMARK=OFF
       - -DWITH_CMARK_GFM=ON
+      - -Dcmark-gfm_DIR=/app/lib/cmake
+      - -Dcmark-gfm-extensions_DIR=/app/lib/cmake-gfm-extensions
     cleanup:
       - /bin
       - /etc
