@@ -283,9 +283,7 @@ modules:
       - -DBUILD_MimeTypeBrowser=OFF
       - -DBUILD_APP=OFF
       - -DBUILD_TEST=OFF
-      - -DCMARK_SHARED=OFF
       - -DCMARK_TESTS=OFF
-      - -DCMARK_STATIC=ON
       - -DWITH_CMARK=OFF
       - -DWITH_CMARK_GFM=ON
     cleanup:
