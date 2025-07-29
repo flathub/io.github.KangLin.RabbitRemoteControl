@@ -284,7 +284,7 @@ modules:
       - type: git
         url: https://github.com/KangLin/RabbitCommon.git
         #tag: v2.3.3
-        commit: ca954003fbb6320062476d43a793592367fc7f88
+        commit: 93c7e05336c54e23875cad46353f8dee056cbc9d
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
