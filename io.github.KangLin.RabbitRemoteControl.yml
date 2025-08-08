@@ -89,7 +89,7 @@ modules:
     disabled: false
     sources:
       - type: archive
-         url: "https://www.libssh.org/files/0.11/libssh-0.11.2.tar.xz"
+        url: "https://www.libssh.org/files/0.11/libssh-0.11.2.tar.xz"
         sha256: "69529fc18f5b601f0baf0e5a4501a2bc26df5e2f116f5f8f07f19fafaa6d04e7"
     buildsystem: cmake-ninja
     builddir: true
@@ -307,7 +307,7 @@ modules:
       - type: git
         url: https://github.com/KangLin/RabbitRemoteControl.git
         #tag: v0.0.36
-        commit: 8506512f8c4bc1a37b57079c0d604a4b3e2a32f3
+        commit: 90cb21460c218b9d713868e618c95b7f248ce280
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
