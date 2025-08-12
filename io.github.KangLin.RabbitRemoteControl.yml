@@ -198,8 +198,9 @@ modules:
         url: http://www.tcpdump.org/release/libpcap-1.10.5.tar.gz
         sha256: 37ced90a19a302a7f32e458224a00c365c117905c2cd35ac544b6880a81488f0
     cleanup:
-      - "/share"
-
+      - /share
+      - /usr/bin/pcap-config
+      
   - name: PcapPlusPlus
     disabled: false
     sources:
@@ -227,6 +228,8 @@ modules:
     builddir: true
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
+    cleanup:
+      - /usr/bin/lxqt2-transupdate
 
   - name: qtermwidget
     disabled: false
