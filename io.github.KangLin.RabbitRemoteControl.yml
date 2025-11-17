@@ -7,9 +7,16 @@ runtime-version: "6.9"
 sdk: "org.kde.Sdk"
 command: RabbitRemoteControlApp
 
+base: io.qt.qtwebengine.BaseApp
+base-version: '6.9'
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
+
 build-options:
   env:
     V: "1"
+    # 修复 qtwebengine 沙箱权限问题
+    QTWEBENGINE_DISABLE_SANDBOX: '1'
 
 cleanup:
   - "*.la"
@@ -36,6 +43,9 @@ finish-args:
   # https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15507
   - --filesystem=xdg-public-share
   - --filesystem=home:ro
+  # https://github.com/flathub/io.qt.qtwebengine.BaseApp
+  - --device=dri
+  - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
 
 modules:
   - name: xprop
@@ -89,12 +99,13 @@ modules:
     disabled: false
     sources:
       - type: archive
-        url: "https://www.libssh.org/files/0.11/libssh-0.11.2.tar.xz"
-        sha256: "69529fc18f5b601f0baf0e5a4501a2bc26df5e2f116f5f8f07f19fafaa6d04e7"
+        url: "https://www.libssh.org/files/0.11/libssh-0.11.3.tar.xz"
+        sha256: "7d8a1361bb094ec3f511964e78a5a4dba689b5986e112afabe4f4d0d6c6125c3"
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
       - -DWITH_EXAMPLES=OFF
+      - -DCMAKE_BUILD_TYPE=Release
     cleanup:
       - /bin
 
@@ -111,6 +122,17 @@ modules:
       - -Dutils=false
 
   - shared-modules/libusb/libusb.json
+  - shared-modules/libsecret/libsecret.json
+
+  - name: curl
+    disabled: false
+    sources:
+      - type: archive
+        url: https://github.com/curl/curl/releases/download/curl-8_16_0/curl-8.16.0.tar.xz
+        sha256: 40c8cddbcb6cc6251c03dea423a472a6cea4037be654ba5cf5dec6eb2d22ff1d
+    buildsystem: autotools
+    config-opts:
+      - --with-openssl
 
   - name: FreeRDP
     disabled: false
@@ -122,7 +144,7 @@ modules:
     builddir: true
     config-opts:
       - -DCMAKE_VERBOSE_MAKEFILE=OFF
-      - -DCMAKE_BUILD_TYPE:STRING=Release
+      - -DCMAKE_BUILD_TYPE=Release
       - -DCHANNEL_TSMF:BOOL=OFF
       - -DBUILD_TESTING:BOOL=OFF
       - -DWITH_MANPAGES:BOOL=OFF
@@ -152,6 +174,7 @@ modules:
       - -DWITH_GCRYPT=OFF
       - -DWITH_EXAMPLES=OFF
       - -DWITH_TESTS=OFF
+      - -DCMAKE_BUILD_TYPE=Release
     cleanup:
       - /bin
       - /lib/libvncserver.so*
@@ -187,6 +210,7 @@ modules:
     builddir: true
     config-opts:
       - -DBUILD_VIEWER=OFF
+      - -DCMAKE_BUILD_TYPE=Release
     cleanup:
       - /bin
       - /lib/*.so*
@@ -208,8 +232,8 @@ modules:
     disabled: false
     sources:
       - type: archive
-        url: https://github.com/seladb/PcapPlusPlus/archive/refs/tags/v24.09.tar.gz
-        sha256: b14998ecf5718c2bfb6f709060e53f7ef67639b98bf2222a3cd23d820d70acdc
+        url: https://github.com/seladb/PcapPlusPlus/archive/refs/tags/v25.05.tar.gz
+        sha256: 66c11d61f3c8019eaf74171ad10229dfaeab27eb86859c897fb0ba1298f80c94
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
@@ -280,13 +304,25 @@ modules:
       - /bin
       - /share/man
 
+  - name: qtkeychain
+    disabled: false
+    sources:
+      - type: git
+        url: https://github.com/frankosterfeld/qtkeychain.git
+        tag: 0.15.0
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_WITH_QT6=ON
+
   - name: RabbitCommon
     disabled: false
     sources:
       - type: git
         url: https://github.com/KangLin/RabbitCommon.git
         #tag: v2.3.3
-        commit: 3f82d1b020d567dd0593d7d049f3bce7f8d39171
+        commit: d5ee66462eac5009942cb3a8212a937a68795328
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
@@ -299,6 +335,7 @@ modules:
       - -DWITH_CMARK_GFM=ON
       - -Dcmark-gfm_DIR=/app/lib/cmake
       - -Dcmark-gfm-extensions_DIR=/app/lib/cmake-gfm-extensions
+      - -DWITH_WebEngineWidgets=ON
     cleanup:
       - /bin
       - /etc
@@ -311,7 +348,7 @@ modules:
       - type: git
         url: https://github.com/KangLin/RabbitRemoteControl.git
         #tag: v0.0.36
-        commit: be45daff4946afafcbfabbdb8f808e31803ddd0a
+        commit: 50adf757012d385608349dd8bac3c28ee956176f
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
