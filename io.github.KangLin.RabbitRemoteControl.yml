@@ -1,10 +1,10 @@
 # [flatpak manifest](https://docs.flatpak.org/en/latest/flatpak-builder-command-reference.html#flatpak-manifest)
-id: "io.github.KangLin.RabbitRemoteControl"
+id: io.github.KangLin.RabbitRemoteControl
 # See: [available runtimes](https://docs.flatpak.org/en/latest/available-runtimes.html)
 # See: [flatpak kde runtime](https://invent.kde.org/packaging/flatpak-kde-runtime)
-runtime: "org.kde.Platform"
-runtime-version: "6.9"
-sdk: "org.kde.Sdk"
+runtime: org.kde.Platform
+runtime-version: '6.9'
+sdk: org.kde.Sdk
 command: RabbitRemoteControlApp
 
 base: io.qt.qtwebengine.BaseApp
@@ -14,17 +14,17 @@ cleanup-commands:
 
 build-options:
   env:
-    V: "1"
+    V: '1'
     # 修复 qtwebengine 沙箱权限问题
     QTWEBENGINE_DISABLE_SANDBOX: '1'
 
 cleanup:
-  - "*.la"
-  - "*.a"
-  - "/include"
-  - "/lib/cmake"
-  - "/lib/pkgconfig"
-  - "/share/licenses"
+  - '*.la'
+  - '*.a'
+  - /include
+  - /lib/cmake
+  - /lib/pkgconfig
+  - /share/licenses
 
 finish-args:
   - --share=ipc
@@ -52,8 +52,8 @@ modules:
     disabled: false
     sources:
       - type: archive
-        url: "https://xorg.freedesktop.org/releases/individual/app/xprop-1.2.5.tar.bz2"
-        sha256: "9b92ed0316bf2486121d8bac88bd1878f16b43bd335f18009b1f941f1eca93a1"
+        url: https://xorg.freedesktop.org/releases/individual/app/xprop-1.2.5.tar.bz2
+        sha256: 9b92ed0316bf2486121d8bac88bd1878f16b43bd335f18009b1f941f1eca93a1
     cleanup:
       - /bin/xprop
       - /share/doc
@@ -69,22 +69,22 @@ modules:
       - --with-systemdsystemunitdir=/app/lib/systemd/
     sources:
       - type: git
-        url: "https://github.com/LudovicRousseau/PCSC.git"
-        tag: "1.9.9"
-        commit: "15c16c7796607b1c8a2ce253d3f536918ab26b4a"
+        url: https://github.com/LudovicRousseau/PCSC.git
+        tag: 1.9.9
+        commit: 15c16c7796607b1c8a2ce253d3f536918ab26b4a
     cleanup:
       - /bin/pcsc-spy
       - /sbin
       - /share/doc
       - /share/man
       - /lib/systemd
-            
+
   - name: krb5
     disabled: false
     sources:
       - type: archive
-        url: "https://kerberos.org/dist/krb5/1.21/krb5-1.21.3.tar.gz"
-        sha256: "b7a4cd5ead67fb08b980b21abd150ff7217e85ea320c9ed0c6dadd304840ad35"
+        url: https://kerberos.org/dist/krb5/1.21/krb5-1.21.3.tar.gz
+        sha256: b7a4cd5ead67fb08b980b21abd150ff7217e85ea320c9ed0c6dadd304840ad35
       - type: script
         commands:
           - autoreconf --install --symlink
@@ -99,8 +99,8 @@ modules:
     disabled: false
     sources:
       - type: archive
-        url: "https://www.libssh.org/files/0.11/libssh-0.11.3.tar.xz"
-        sha256: "7d8a1361bb094ec3f511964e78a5a4dba689b5986e112afabe4f4d0d6c6125c3"
+        url: https://www.libssh.org/files/0.11/libssh-0.11.3.tar.xz
+        sha256: 7d8a1361bb094ec3f511964e78a5a4dba689b5986e112afabe4f4d0d6c6125c3
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
@@ -219,14 +219,14 @@ modules:
     disabled: false
     sources:
       - type: archive
-        url: http://www.tcpdump.org/release/libpcap-1.10.5.tar.gz
-        sha256: 37ced90a19a302a7f32e458224a00c365c117905c2cd35ac544b6880a81488f0
+        url: http://www.tcpdump.org/release/libpcap-1.10.6.tar.gz
+        sha256: 872dd11337fe1ab02ad9d4fee047c9da244d695c6ddf34e2ebb733efd4ed8aa9
         x-checker-data:
           type: anitya
           project-id: 1702
           url-template: http://www.tcpdump.org/release/libpcap-$version.tar.gz
     cleanup:
-      - "/share"
+      - /share
 
   - name: PcapPlusPlus
     disabled: false
