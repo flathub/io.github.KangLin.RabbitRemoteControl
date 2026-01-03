@@ -316,13 +316,24 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
       - -DBUILD_WITH_QT6=ON
 
+  - name: QFtpServer
+    sources:
+      - type: git
+        url: https://github.com/KangLin/QFtpServer.git
+        commit: 907964276f0511bc42e916f1e33afabd6a2899ef
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DWITH_APP=OFF
+
   - name: RabbitCommon
     disabled: false
     sources:
       - type: git
         url: https://github.com/KangLin/RabbitCommon.git
         #tag: v2.3.3
-        commit: 410f7ca4a2ccc37caf0fcc7818d3b993c15af8dc
+        commit: 731e2db4cbd574a82bb2434ad0aa1f50ce8f07d4
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
