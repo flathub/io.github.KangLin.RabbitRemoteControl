@@ -320,7 +320,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/KangLin/QFtpServer.git
-        commit: 907964276f0511bc42e916f1e33afabd6a2899ef
+        commit: 4e98ea4402cea73a9e028250aa025cd9bcbf337a
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
@@ -333,7 +333,7 @@ modules:
       - type: git
         url: https://github.com/KangLin/RabbitCommon.git
         #tag: v2.3.3
-        commit: 731e2db4cbd574a82bb2434ad0aa1f50ce8f07d4
+        commit: d9518cdd8ce819b228dd5690ad5aa6e99e820526
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
@@ -359,7 +359,7 @@ modules:
       - type: git
         url: https://github.com/KangLin/RabbitRemoteControl.git
         #tag: v0.0.36
-        commit: 0149769c5e9c4ea1d2c3dfe374f444ff78b8ac7f
+        commit: 760df466ea3cece012be198da20e2f64f51bd61c
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
