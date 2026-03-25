@@ -3,12 +3,12 @@ id: io.github.KangLin.RabbitRemoteControl
 # See: [available runtimes](https://docs.flatpak.org/en/latest/available-runtimes.html)
 # See: [flatpak kde runtime](https://invent.kde.org/packaging/flatpak-kde-runtime)
 runtime: org.kde.Platform
-runtime-version: '6.9'
+runtime-version: '6.10'
 sdk: org.kde.Sdk
 command: RabbitRemoteControlApp
 
 base: io.qt.qtwebengine.BaseApp
-base-version: '6.9'
+base-version: '6.10'
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
 
@@ -121,11 +121,11 @@ modules:
       - -Dexamples=false
       - -Dutils=false
 
-  - shared-modules/libusb/libusb.json
-  - shared-modules/libsecret/libsecret.json
+  #- shared-modules/libusb/libusb.json
+  #- shared-modules/libsecret/libsecret.json
 
   - name: curl
-    disabled: false
+    disabled: true
     sources:
       - type: archive
         url: https://github.com/curl/curl/releases/download/curl-8_16_0/curl-8.16.0.tar.xz
@@ -175,6 +175,7 @@ modules:
       - -DWITH_EXAMPLES=OFF
       - -DWITH_TESTS=OFF
       - -DCMAKE_BUILD_TYPE=Release
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     cleanup:
       - /bin
       - /lib/libvncserver.so*
@@ -183,8 +184,8 @@ modules:
     disabled: false
     sources:
       - type: archive
-        url: https://cairographics.org/releases/pixman-0.46.0.tar.xz
-        sha512: c7ef987b7db89c58278c537f862bc9eb17c19f8288a3b7e88f8501a0486662f1e2cb6a2c0b81d4bf0464310475192428d6e29d05a6ae3cfc1d2c0941fbb0b9a3
+        url: https://cairographics.org/releases/pixman-0.46.4.tar.xz
+        sha512: 83b133e7969ba34f883f4e08dcc5d388c4397f43ce836c191c05945fe77c16ff501d531600780c12678a0d08105828a6bdeff2156b63f9c1a84087bc7f40ae9f
     buildsystem: meson
     builddir: true
 
@@ -205,12 +206,13 @@ modules:
     sources:
       - type: git
         url: https://github.com/KangLin/tigervnc.git
-        commit: fd32c28515c83ec3db6b812f2ee8f5fbbcf29b33
+        commit: e65dd4121630693d311d1445cdc2a6074c5a5295
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
       - -DBUILD_VIEWER=OFF
       - -DCMAKE_BUILD_TYPE=Release
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     cleanup:
       - /bin
       - /lib/*.so*
@@ -266,6 +268,7 @@ modules:
     builddir: true
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 
   - name: cmark
     disabled: true
@@ -280,6 +283,7 @@ modules:
       - -DCMARK_SHARED=OFF
       - -DCMARK_TESTS=OFF
       - -DCMARK_STATIC=ON
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     cleanup:
       - /bin
       - /share/man
@@ -297,6 +301,7 @@ modules:
       - -DCMARK_SHARED=OFF
       - -DCMARK_TESTS=OFF
       - -DCMARK_STATIC=ON
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     post-install:
       - cp /app/lib/cmake/cmark-gfm.cmake $FLATPAK_DEST/lib/cmake/cmark-gfmConfig.cmake
       - cp /app/lib/cmake-gfm-extensions/cmark-gfm-extensions.cmake $FLATPAK_DEST/lib/cmake-gfm-extensions/cmark-gfm-extensionsConfig.cmake
@@ -333,7 +338,7 @@ modules:
       - type: git
         url: https://github.com/KangLin/RabbitCommon.git
         #tag: v2.3.3
-        commit: 11e481f1bcad2032bdc5f8b9b3189e76044d7776
+        commit: 9639aff3426a85c1638cd3f108b53cc185aa9488
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
@@ -359,7 +364,7 @@ modules:
       - type: git
         url: https://github.com/KangLin/RabbitRemoteControl.git
         #tag: v0.0.36
-        commit: 10f777987d047b822b0e3dbf7abe0f4a4a750a98
+        commit: 11f4bb021239bb5635ad380002ac9449cfdedc69
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
