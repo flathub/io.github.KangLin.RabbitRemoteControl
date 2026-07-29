@@ -340,7 +340,7 @@ modules:
       - type: git
         url: https://github.com/KangLin/RabbitCommon.git
         #tag: v2.3.3
-        commit: 3eb0542582f0b265086101cdba9a33c4802c8a6b
+        commit: 0b33a0330f837a2429d7a471358a1b675d80d9e2
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
@@ -366,7 +366,7 @@ modules:
       - type: git
         url: https://github.com/KangLin/RabbitRemoteControl.git
         #tag: v0.0.36
-        commit: 65dd6747f7ba48450911199cc6084e9c412ebf03
+        commit: 25871aa05d66d3f0230666b19d43cc5b2d585f42
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
