@@ -236,8 +236,8 @@ modules:
     disabled: false
     sources:
       - type: archive
-        url: https://github.com/seladb/PcapPlusPlus/archive/refs/tags/v25.05.tar.gz
-        sha256: 66c11d61f3c8019eaf74171ad10229dfaeab27eb86859c897fb0ba1298f80c94
+        url: https://github.com/seladb/PcapPlusPlus/archive/refs/tags/v26.07.tar.gz
+        sha256: 58efbebde9df37134ca6abffdc585562155b7fc0937ced1fd6569a8c93a22ba6
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
@@ -340,7 +340,7 @@ modules:
       - type: git
         url: https://github.com/KangLin/RabbitCommon.git
         #tag: v2.3.3
-        commit: 0b33a0330f837a2429d7a471358a1b675d80d9e2
+        commit: 9a33663246bcd4782cdd2267d6f44132540798cf
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
@@ -366,7 +366,7 @@ modules:
       - type: git
         url: https://github.com/KangLin/RabbitRemoteControl.git
         #tag: v0.0.36
-        commit: 25871aa05d66d3f0230666b19d43cc5b2d585f42
+        commit: 16fe11a05e7713d85953a889255a66576f0a990d
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
