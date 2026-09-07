@@ -340,7 +340,7 @@ modules:
       - type: git
         url: https://github.com/KangLin/RabbitCommon.git
         #tag: v2.3.3
-        commit: 0b722e4bc68f7b02976b29cc2ab077258fc1f29a
+        commit: 4b5c38621ce3eaad0df58e3a777d3ce71dae9bcb
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
@@ -366,7 +366,7 @@ modules:
       - type: git
         url: https://github.com/KangLin/RabbitRemoteControl.git
         #tag: v0.0.36
-        commit: fca00e384da8e98cabf992bd082afe1c1305b09a
+        commit: 1fd4f4f9c8b21e61b1b23684de456183101c8223
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
@@ -385,3 +385,6 @@ modules:
     post-install:
       - desktop-file-edit --set-key=Path --set-value=/bin /app/share/applications/io.github.KangLin.RabbitRemoteControl.desktop
       - install -Dm0644 io.github.KangLin.RabbitRemoteControl.metainfo.xml -t ${FLATPAK_DEST}/share/metainfo/
+      - mkdir -p /app/export/share/applications
+      - ln -sf /app/share/applications/io.github.KangLin.RabbitRemoteControl.desktop /app/export/share/applications/
+      - update-desktop-database /app/share/applications
