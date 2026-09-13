@@ -223,8 +223,8 @@ modules:
     disabled: false
     sources:
       - type: archive
-        url: http://www.tcpdump.org/release/libpcap-1.10.7.tar.gz
-        sha256: 0b394ac90dbc0a9838ff97468e05c9c9a3e873dec2514cd58db65d859d296e31
+        url: http://www.tcpdump.org/release/libpcap-1.11.0.tar.gz
+        sha256: 596389bc8560ea027dff9db8aaf6c173d992366d9aef4baf5d7c6d180b4d49ad
         x-checker-data:
           type: anitya
           project-id: 1702
@@ -386,5 +386,6 @@ modules:
       - desktop-file-edit --set-key=Path --set-value=/bin /app/share/applications/io.github.KangLin.RabbitRemoteControl.desktop
       - install -Dm0644 io.github.KangLin.RabbitRemoteControl.metainfo.xml -t ${FLATPAK_DEST}/share/metainfo/
       - mkdir -p /app/export/share/applications
-      - ln -sf /app/share/applications/io.github.KangLin.RabbitRemoteControl.desktop /app/export/share/applications/
+      - ln -sf /app/share/applications/io.github.KangLin.RabbitRemoteControl.desktop
+        /app/export/share/applications/
       - update-desktop-database /app/share/applications
