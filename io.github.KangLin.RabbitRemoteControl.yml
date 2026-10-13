@@ -141,7 +141,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/FreeRDP/FreeRDP.git
-        tag: 3.31.1
+        tag: 3.32.2
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
@@ -340,7 +340,7 @@ modules:
       - type: git
         url: https://github.com/KangLin/RabbitCommon.git
         #tag: v2.3.3
-        commit: 1ecf6b3760d5a6c8a0f7b7a993e82f3bcd68f16d
+        commit: 21239f874192a2de7a84097a7f8b3ef4f6d9a69c
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
@@ -366,7 +366,7 @@ modules:
       - type: git
         url: https://github.com/KangLin/RabbitRemoteControl.git
         #tag: v0.0.36
-        commit: b875da9417c1760799d4375d7270cc2febeb41c5
+        commit: 298d53e36ce4a725578bfe806ccf7873176f0851
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
