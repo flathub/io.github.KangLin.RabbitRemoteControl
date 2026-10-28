@@ -44,7 +44,6 @@ finish-args:
   - --filesystem=xdg-public-share
   - --filesystem=home:ro
   # https://github.com/flathub/io.qt.qtwebengine.BaseApp
-  - --device=dri
   - --env=QTWEBENGINEPROCESS_PATH=/app/bin/QtWebEngineProcess
 
 modules:
