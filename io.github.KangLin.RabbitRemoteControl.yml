@@ -323,6 +323,7 @@ modules:
       - -DBUILD_WITH_QT6=ON
 
   - name: QFtpServer
+    disabled: false
     sources:
       - type: git
         url: https://github.com/KangLin/QFtpServer.git
@@ -339,7 +340,7 @@ modules:
       - type: git
         url: https://github.com/KangLin/RabbitCommon.git
         #tag: v2.3.3
-        commit: 290a590a8be97a1af6272391b92706b3c92de81a
+        commit: f14742031590cc81dce7b69e6687517bfdfb3365
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
@@ -353,6 +354,7 @@ modules:
       - -Dcmark-gfm_DIR=/app/lib/cmake
       - -Dcmark-gfm-extensions_DIR=/app/lib/cmake-gfm-extensions
       - -DWITH_WebEngineWidgets=ON
+      - -DWITH_UPDATE=OFF
     cleanup:
       - /bin
       - /etc
@@ -360,18 +362,21 @@ modules:
       - /share/doc
 
   - name: RabbitRemoteControl
-    disabled: false
     sources:
       - type: git
         url: https://github.com/KangLin/RabbitRemoteControl.git
         #tag: v0.0.36
-        commit: f6f21041f561002e9adc528399effd6bbe67c0ad
+        commit: 83491cd5997aa69c1bd9f24229171153661798ac
         disable-shallow-clone: true
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
+      - -DWITH_UPDATE=OFF
+      - -DENABLE_UPDATE_TRANSLATIONS=ON
       - -DBUILD_FREERDP=ON
+      - -DWITH_CMARK=OFF
+      - -DWITH_CMARK_GFM=ON
     cleanup:
       - -usr/bin/cmark
       - -usr/bin/cmark-gfm
